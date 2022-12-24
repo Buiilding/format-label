@@ -1,33 +1,50 @@
 1. CVAT
+ 
 CVAT is used for labeling data for solving computer vision tasks such as:
 
 Image Classification
+
 Object Detection
+
 Object Tracking
+
 Image Segmentation
+
 Pose Estimation
 
 Of course, apart from annotating bounding boxes for object detection, CVAT also allows you to annotate your data for image classification, semantic segmentation, instance segmentation, and object tracking
 
 2. COCO
+
 COCO is large scale images with Common Objects in Context (COCO) for object detection, segmentation, and captioning data set. COCO has 1.5 million object instances for 80 object categories
 
 COCO has 5 annotation types used for
 
 object detection
+
 keypoint detection
+
 stuff segmentation
+
 panoptic segmentation
+
 image captioning
+
 COCO stores annotations in a JSON file. Let’s look at the JSON format for storing the annotation details for the bounding box. This will help to create your own data set using the COCO format.
 
 The basic building blocks for the JSON annotation file is
 
 info: contains high-level information about the dataset.
+
 licenses: contains a list of image licenses that apply to images in the dataset.
+
 categories: contains a list of categories. Categories can belong to a supercategory
+
+
 images: contains all the image information in the dataset without bounding box or segmentation information. image ids need to be unique
+
 annotations: list of every individual object annotation from every image in the dataset
+
 
 3.Pascal
 Pascal VOC provides standardized image data sets for object detection
@@ -35,9 +52,13 @@ Pascal VOC provides standardized image data sets for object detection
 Difference between COCO and Pacal VOC data formats will quickly help understand the two data formats
 
 Pascal VOC is an XML file, unlike COCO which has a JSON file.
+
 In Pascal VOC we create a file for each of the image in the dataset. In COCO we have one file each, for entire dataset for training, testing and validation.
+
 The bounding Box in Pascal VOC and COCO data formats are different
+
 COCO Bounding box: (x-top left, y-top left, width, height)
+
 
 Pascal VOC Bounding box :(xmin-top left, ymin-top left,xmax-bottom right, ymax-bottom right)
 
@@ -54,10 +75,15 @@ Object:
 Contains the object details. If you have multiple annotations then the object tag with its contents is repeated. The components of the object tags are
 
 name
+
 pose
+
 truncated
+
 difficult
+
 bndbox
+
 name:
 This is the name of the object that we are trying to identify
 
