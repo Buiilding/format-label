@@ -20,13 +20,8 @@ CVAT:
   - [COCO](#coco)
   - [PASCAL VOC and mask](#voc)
   - [YOLO](#yolo)
-  - [TF detection API](#tfrecord)
-  - [ImageNet](#imagenet)
-  - [CamVid](#camvid)
-  - [WIDER Face](#widerface)
-  - [VGGFace2](#vggface2)
-  - [Market-1501](#market1501)
-  - [ICDAR13/15](#icdar)
+
+  
 
 ## How to add a new annotation format support<a id="how-to-add"></a>
 
@@ -579,28 +574,4 @@ Uploaded file: a single unpacked `*.json` or a zip archive with the structure ab
    choose `COCO 1.1` and select `instances_val2017.json.json`
    annotation file. It can take some time.
 
-### [TFRecord](https://www.tensorflow.org/tutorials/load_data/tf_records)<a id="tfrecord" />
-
-TFRecord is a very flexible format, but we try to correspond the
-format that used in
-[TF object detection](https://github.com/tensorflow/models/tree/master/research/object_detection)
-with minimal modifications.
-
-Used feature description:
-
-```python
-image_feature_description = {
-    'image/filename': tf.io.FixedLenFeature([], tf.string),
-    'image/source_id': tf.io.FixedLenFeature([], tf.string),
-    'image/height': tf.io.FixedLenFeature([], tf.int64),
-    'image/width': tf.io.FixedLenFeature([], tf.int64),
-    # Object boxes and classes.
-    'image/object/bbox/xmin': tf.io.VarLenFeature(tf.float32),
-    'image/object/bbox/xmax': tf.io.VarLenFeature(tf.float32),
-    'image/object/bbox/ymin': tf.io.VarLenFeature(tf.float32),
-    'image/object/bbox/ymax': tf.io.VarLenFeature(tf.float32),
-    'image/object/class/label': tf.io.VarLenFeature(tf.int64),
-    'image/object/class/text': tf.io.VarLenFeature(tf.string),
-}
-```
 
